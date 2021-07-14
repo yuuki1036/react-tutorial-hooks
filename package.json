@@ -1,0 +1,92 @@
+{
+  "name": "hello-world",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^13.1.9",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.2",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.3.2",
+    "web-vitals": "^2.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "fix": "npm run -s format && npm run -s lint:fix",
+    "format": "prettier --write --loglevel=warn src/**/*.{js,jsx,ts,tsx,gql,graphql,json}",
+    "lint": "npm run -s lint:style; npm run -s lint:es",
+    "lint:fix": "npm run -s lint:style:fix && npm run -s lint:es:fix",
+    "lint:es": "eslint src/**/*.{js,jsx,ts,tsx}",
+    "lint:es:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
+    "lint:conflict": "eslint-config-prettier src/**/*.{js,jsx,ts,tsx}",
+    "lint:style": "stylelint src/**/*.{css,less,sass,scss}",
+    "lint:style:fix": "stylelint --fix src/**/*.{css,less,sass,scss}",
+    "postinstall": "typesync",
+    "prepare": "simple-git-hooks"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/prettier": "^2.3.0",
+    "@types/stylelint": "^13.13.0",
+    "@types/testing-library__jest-dom": "^5.14.0",
+    "@types/testing-library__user-event": "^4.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.1",
+    "simple-git-hooks": "^2.4.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recess-order": "^2.4.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
+    "typesync": "^0.8.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write --loglevel=warn",
+      "eslint --fix"
+    ],
+    "src/**/*.css": [
+      "stylelint --fix"
+    ],
+    "src/**/*.{gql,graphql,json}": [
+      "prettier --write --loglevel=warn"
+    ]
+  }
+}
